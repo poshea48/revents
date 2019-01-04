@@ -33,7 +33,7 @@ class EventListItem extends Component {
          </Segment>
          <Segment secondary>
            <List horizontal>
-             {attendees}
+             {event.attendees && attendees}
            </List>
          </Segment>
          <Segment clearing>
