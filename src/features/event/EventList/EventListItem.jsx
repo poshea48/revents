@@ -5,7 +5,7 @@ import EventListAttendee from './EventListAttendee'
 
 class EventListItem extends Component {
   render () {
-    const { event } = this.props
+    const { event, onEventOpen, deleteEvent } = this.props
     const attendees = event.attendees.map((att) => {
       return <EventListAttendee key={att.id} attendee={att} />
     })
@@ -15,11 +15,11 @@ class EventListItem extends Component {
          <Segment>
            <Item.Group>
              <Item>
-               <Image size='small' circular src={event.hostPhotoURL}/>
+               <Image size='tiny' clasName="avatar" circular src={event.hostPhotoURL}/>
                <Item.Content>
                  <Item.Header as="a">{event.title}</Item.Header>
                  <Item.Description>
-                   Hosted by <a>event.hostedBy</a>
+                   Hosted by <a>{event.hostedBy}</a>
                  </Item.Description>
                </Item.Content>
              </Item>
@@ -38,7 +38,8 @@ class EventListItem extends Component {
          </Segment>
          <Segment clearing>
            <span>{event.description}</span>
-           <Button as="a" color="teal" floated="right" content="View" />
+            <Button onClick={deleteEvent(event.id)} as="a" color="red" floated="right" content="Delete" />
+            <Button onClick={onEventOpen(event)} as="a" color="teal" floated="right" content="View" />
          </Segment>
        </Segment.Group>
     )
