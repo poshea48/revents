@@ -15,7 +15,7 @@ class EventListItem extends Component {
          <Segment>
            <Item.Group>
              <Item>
-               <Image size='tiny' clasName="avatar" circular src={event.hostPhotoURL}/>
+               <Image size='tiny' className="avatar" circular src={event.hostPhotoURL}/>
                <Item.Content>
                  <Item.Header as="a">{event.title}</Item.Header>
                  <Item.Description>
@@ -37,7 +37,7 @@ class EventListItem extends Component {
            </List>
          </Segment>
          <Segment clearing>
-           <span>{event.description}</span>
+           <div>{event.description}</div>
             <Button onClick={deleteEvent(event.id)} as="a" color="red" floated="right" content="Delete" />
             <Button onClick={onEventOpen(event)} as="a" color="teal" floated="right" content="View" />
          </Segment>
